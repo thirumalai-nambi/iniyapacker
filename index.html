@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<style>
+	#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+#snackbar_f {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #ad6161; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+#snackbar_f.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+</style>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
+<script type="text/javascript" src="tt_slideshow.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script type="text/javascript" src="customjs.js"></script>
+<script type="text/javascript" src="contactform.js"></script>
+<script type="text/javascript" src="tt_animation.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js">
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_AR378d1qUObYIWMy0Ap4M");
+   })();
+</script>
+
+<script>
+	function data() {
+		var x = document.getElementById("snackbar");
+		var y = document.getElementById("snackbar_f");
+
+		var name=document.getElementById("nameid").value;  
+		var Email=document.getElementById("emailid").value;  
+		var phone=document.getElementById("phoneid").value;  
+
+		var templateParams = {
+    name: name,
+    Email: Email,
+		Phone: phone,
+};
+
+
+		emailjs.send('service_56p2f7i', "template_fbc708c", templateParams)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+
+    }, function(error) {
+       console.log('FAILED...', error);
+			 alert("FAILED Try Later");
+
+			 y.className = "show";
+       setTimeout(function(){ y.className = y.className.replace("show", ""); }, 3000);
+
+    });
+
+
+}
+
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<meta name="description" content="Meta Description" />
+
+<title>Home</title>
+
+<link rel="stylesheet"  href="bootstrap.css" type="text/css" media="screen"/>
+
+<link rel="stylesheet"  href="style.css" type="text/css" media="screen"/>
+
+<script type="text/javascript" src="totop.js"></script>
+
+<script type="text/javascript" src="tt_animation.js"></script>
+
+</head>
+
+<body class="home">
+	<div id="snackbar">Our Team Will Contact you Shortly...</div>
+
+	<div id="snackbar_f">Failed Try Later...</div> 
+
+<div class="totopshow">
+
+<a href="#" class="back-to-top"><img alt="Back to Top" src="images/gototop0.png"/></a>
+
+</div><!-- totopshow -->
+
+<div class="margin_collapsetop"></div>
+
+<header id="ttr_header">
+
+<div class="margin_collapsetop"></div>
+
+<div id="ttr_header_inner">
+
+<div class="ttr_header_element_alignment container">
+
+<div class="ttr_images_container">
+
+
+
+</div>
+
+</div>
+
+<div class="ttr_images_container">
+
+<div class="ttr_header_logo"></div>
+
+<a href="https://www.facebook.com/profile.php?id=100076058710605" class="ttr_header_facebook " target="_blank"></a>
+
+<a href="#" class="bi bi-instagram " target="_blank"></a>
+
+<div class="ttr_headershape01">
+
+<div class="html_content"><p><a href="tel:+919865146378"><span style="color:rgba(251,234,219,1);">Phone: +91 9865146378</span></p><p><br style="color:rgba(251,234,219,1);" /></p></div>
+
+</div>
+
+<div class="ttr_headershape02">
+
+<div class="html_content"><p><a href="mailto:vadiveliniya001gmail.com"><span style="color:rgba(251,234,219,1);">Email: vadiveliniya001@gmail.com</span></a></p></div>
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<div id="ttr_menu"> 
+
+<div class="margin_collapsetop"></div>
+
+<nav class="navbar-default navbar-expand-md navbar">
+
+<div id="ttr_menu_inner_in">
+
+<div class="ttr_menu_element_alignment container">
+
+
+<div class="ttr_images_container">
+
+<div class="ttr_menushape1">
+
+<div class="html_content">
+
+	<p style="text-align:Right;">
+
+		<span><a href="#contact" target="_self" class="btn btn-md btn-default">BOOK NOW</a></span>
+
+	</p>
+
+</div>
+
+</div>
+
+<div class="ttr_menu_logo">
+
+<a href="" target="_self"><img src="iniyalogo.png" alt="menuimage" class="" /></a>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="navigationmenu">
+
+<div class="navbar-header">
+
+<button id="nav-expander" data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+
+<span class="ttr_menu_toggle_button">
+
+<span class="sr-only"></span>
+
+<span class="icon-bar navbar-toggler-icon"></span>
+
+<span class="icon-bar navbar-toggler-icon"></span>
+
+<span class="icon-bar navbar-toggler-icon"></span>
+
+</span>
+<span class="ttr_menu_button_text">Menu</span>
+
+</button>
+
+</div>
+
+<div class="menu-center collapse navbar-collapse">
+
+<ul class="ttr_menu_items nav navbar-nav nav-center">
+
+<li class="ttr_menu_items_parent dropdown active"><a href="index.html" class="ttr_menu_items_parent_link_active"><span class="menuchildicon">
+	
+</span>Home</a>
+
+<hr class ="horiz_separator"/>
+
+</li> <!-- main menu list closing -->
+
+<li class="ttr_menu_items_parent dropdown">
+
+	<a href="#abtus" class="ttr_menu_items_parent_link">
+
+		<span class="menuchildicon"></span>About Us</a>
+
+<hr class ="horiz_separator"/>
+
+</li> <!-- main menu list closing -->
+
+<li class="ttr_menu_items_parent dropdown"><a href="#service" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>Services</a>
+
+<hr class ="horiz_separator"/>
+
+</li> <!-- main menu list closing -->
+
+<li class="ttr_menu_items_parent dropdown"><a href="#gallery" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>Gallery</a>
+
+</li> <!-- main menu list closing -->
+
+<hr class ="horiz_separator"/>
+
+</li> <!-- main menu list closing -->
+
+<li class="ttr_menu_items_parent dropdown"><a href="#contact" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>Contact</a>
+
+</li> <!-- main menu list closing -->
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</nav>
+
+</div>
+
+<div class="ttr_banner_slideshow">
+
+</div>
+
+<div class="ttr_slideshow">
+
+<div class="margin_collapsetop"></div>
+
+<div id="ttr_slideshow_inner">
+
+<ul>
+
+<li id="Slide0" class="ttr_slide" data-slideEffect="Fade">
+
+<div class="ttr_slideshow_last">
+
+<div class="ttr_slideshow_element_alignment container" data-begintime="0" data-effect="Fade" data-easing="linear" data-slide="None" data-duration="0">
+
+</div>
+
+</div>
+
+</li>
+
+<li id="Slide1" class="ttr_slide" data-slideEffect="Fade">
+
+<div class="ttr_slideshow_last">
+
+<div class="ttr_slideshow_element_alignment container" data-begintime="0" data-effect="Fade" data-easing="linear" data-slide="None" 
+data-duration="0">
+
+</div>
+
+</div>
+
+</li>
+
+<li id="Slide2" class="ttr_slide" data-slideEffect="Fade">
+
+<div class="ttr_slideshow_last">
+
+<div class="ttr_slideshow_element_alignment container" data-begintime="0" data-effect="Fade" data-easing="linear" data-slide="None" 
+data-duration="0">
+
+</div>
+
+</div>
+
+</li>
+
+</ul>
+
+
+</div>
+
+
+<div class="ttr_slideshow_in">
+
+<div class="ttr_slideshow_last">
+
+<div id="nav"></div>
+
+<div class="ttr_slideshow_logo"></div>
+
+<div class="ttr_stickyslideshowshape1">
+
+<div class="html_content">
+
+	<p style="margin:40px 0px 5px 40px;line-height:2.50em;">
+
+		<span style="font-weight:700;font-size:2.70em;color:rgba(26,75,89,1);">Iniya Movers and Packers</span>
+
+	</p>
+
+	<p style="margin:20px 0px 5px 40px;line-height:2.15em;">
+
+		<span style="font-size:1.80em;"> Just shifting products from one place to another...! </span>
+	</p>
+		
+
+		<p style="margin:20px 0px 5px 40px;line-height:1.15em;">
+		
+		<span style="font-size:1.20em;"> We Cover All Over India ..!</span>
+	
+	</p>
+
+		<p style="margin:20px 0px 5px 40px;line-height:2.15em;">
+
+			<span><a href="tel:+919865146378" target="_self" class="btn btn-lg btn-primary">CALL: +91 9865146378</a></span>
+
+		</p></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ttr_banner_slideshow"></div>
+
+<div class="margin_collapsetop"></div>
+
+<div id="ttr_page" class="container">
+
+<div id="ttr_content_and_sidebar_container">
+
+<div id="ttr_content">
+
+<div id="ttr_html_content_margin" class="container-fluid">
+
+<div class="margin_collapsetop"></div>
+
+<div class="ttr_home_html_row0 row" >
+
+<div class="post_column col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12">
+
+<div class="ttr_home_html_column00">
+
+<div class="margin_collapsetop"></div>
+
+<div class="html_content">
+
+	<p>
+		<span class="ttr_image" style="float:Left;overflow:hidden;margin:0px 0px 0px 0px;"><span>
+
+		<img class="ttr_uniform" style="max-height:462.748344370861px;max-width:500px;margin:0px 0px 0px 0px;" src="images/Image1.jpg" alt="image" /></span>
+
+		</span>
+
+	</p>
+
+</div>
+
+<div class="margin_collapsetop"></div>
+
+<div style="clear:both;width:0px;"></div>
+
+</div>
+
+</div>
+
+<div class=" visible-sm-block d-sm-block visible-xs-block d-block" style="clear: both;width:0px;" ></div>
+
+<div class="post_column col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12">
+
+<div class="ttr_home_html_column01" id="abtus">
+
+<div class="margin_collapsetop"></div>
+
+<div class="html_content">
+
+	<h2 style="line-height:1.68em;">
+
+		<span style="font-weight:600;font-size:1.167em;">About Us</span></h2>
+
+		<p style="line-height:2.13em;">
+
+			<span style="font-size:1.20em;color:rgba(78,78,78,1);" id="demo" style="display: none;">
+				We understand that you are looking for good relocation service provider.
+				<br>
+				We would like to take this opportunity'to introduce ourselves as one of unique Relocatiorts company, Iniya Movers and packers With good experience in the business, constantly pushing the barriers, benchmerks. We provide relocation services for both domestic and international requirements.
+			</span>
+		
+		</p>
+
+		
+
+	</div>
+
+<div class="margin_collapsetop"></div>
+
+<div style="clear:both;width:0px;"></div>
+
+</div>
+
+</div>
+
+<div class=" visible-lg-block d-xl-block d-lg-block visible-md-block d-md-block visible-sm-block d-sm-block visible-xs-block d-block" style=
+"clear: both;width:0px;"></div>
+
+</div>
+
+<div class="ttr_home_html_row1 row" id="service">
+
+<div class="post_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+
+<div class="ttr_home_html_column10">
+
+<div class="margin_collapsetop"></div>
+
+<div class="html_content">
+
+	<h2 style="text-align:Center;line-height:1.68em;">
+
+		<span style="font-size:1.167em;color:rgba(52,52,52,1);">Our Services</span>
+
+	</h2>
+
+	<p style="text-align:Center;line-height:2.13em;">
+
+		<span style="font-size:1.071em;color:rgba(78,78,78,1);">All Over India </span>
+
+	</p>
+
+</div>
+
+<div class="margin_collapsetop"></div>
+
+<div style="clear:both;width:0px;"></div>
+
+</div>
+
+</div>
+
+<div class=" visible-lg-block d-xl-block d-lg-block visible-md-block d-md-block visible-sm-block d-sm-block visible-xs-block d-block" style="clear: both;width:0px;"></div>
+
+<div class="post_column col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
+
+<div class="ttr_home_html_column11">
+
+<div class="margin_collapsetop"></div>
+
+<div class="html_content">
+
+	<h2 style="text-align:Center;line-height:0.82em;">
+
+		<span class="ttr_image" style="float:none;display:block;overflow:hidden;margin:0px 0px 0px 0px;">
+
+			<span><img style="max-height:72px;max-width:72px;margin:0px 0px 20px 0px;" src="images/Icon15.png" alt="icon" /></span>
+
+		</span>
+
+		<span style="font-weight:600;font-size:0.556em;color:rgba(52,52,52,1);">Local Moving </span>
+
+	</h2>
+
+	<p style="text-align:Center;line-height:2.11em;">
+
+		<span style="font-size:1.071em;color:rgba(78,78,78,1);"> Shifting Products In Local Places </span>
+
+		<span style="font-family:'Poppins','Arial';font-size:1.071em;color:rgba(78,78,78,1);"></span>
+
+		<span style="font-size:1.071em;color:rgba(78,78,78,1);"></span>
+
+	</p>
+
+</div>
+
+<div class="margin_collapsetop"></div>
+
+<div style="clear:both;width:0px;"></div>
+
+</div>
+
+</div>
+
+<div class=" visible-sm-block d-sm-block visible-xs-block d-block" style="clear: both;width:0px;"></div>
+
+<div class="post_column col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
+
+<div class="ttr_home_html_column12">
+
+<div class="margin_collapsetop"></div>
+
+<div class="html_content">
+
+	<p style="margin:10px 0px 10px 0px;text-align:Center;line-height:2.1em;font-family:'Poppins','Arial';color:rgba(
+231,126,35,1);">
+
+<span class="ttr_image" style="float:none;display:block;overflow:hidden;margin:0px 0px 0px 0px;">
+
+	<span>
+		<img class="ttr_uniform" style="max-height:62px;max-width:62px;margin:0px 0px 20px 0px;" src="images/Icon2.png" alt="icon" />
+	</span>
+
+</span>
+
+<span style="font-weight:600;font-size:1.429em;color:rgba(52,52,52,1);">Long Distance Moving</span>
+
+</p>
+
+<p style="margin:5px 0px 5px 0px;text-align:Center;line-height:2.11em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+	<span style="font-size:1.071em;color:rgba(78,78,78,1);"> Shifting Products to Long distancce also </span>
+
+</p>
+
+<p style="margin:5px 0px 5px 0px;text-align:Center;line-height:2.11em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+	<span style="font-size:1.071em;color:rgba(78,78,78,1);"></span>
+
+	<span style="font-size:1.071em;color:rgba(78,78,78,1);"></span>
+
+</p>
+
+</div>
+
+<div class="margin_collapsetop"></div>
+
+<div style="clear:both;width:0px;"></div>
+
+</div>
+
+</div>
+
+<div class=" visible-sm-block d-sm-block visible-xs-block d-block" style="clear: both;width:0px;"></div>
+
+<div class="post_column col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
+
+<div class="ttr_home_html_column13">
+
+<div class="margin_collapsetop"></div>
+
+<div class="html_content">
+
+	<p style="margin:10px 0px 10px 0px;text-align:Center;line-height:2.1em;font-family:'Poppins','Arial';color:rgba(
+231,126,35,1);">
+
+<span class="ttr_image" style="float:none;display:block;overflow:hidden;margin:0px 0px 0px 0px;"><span>
+
+	<img class="ttr_uniform" style="max-height:62px;max-width:62px;margin:0px 0px 20px 0px;" src="images/Icon3.png" alt="icon" /></span></span>
+
+	<span style="font-weight:600;font-size:1.429em;color:rgba(52,52,52,1);">Moving Kits</span></p>
+
+	<p style="margin:5px 0px 5px 0px;text-align:Center;line-height:2.11em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+		<span style="font-size:1.071em;color:rgba(78,78,78,1);">Moving Box Products</span></p>
+
+		<p style="margin:5px 0px 5px 0px;text-align:Center;line-height:2.11em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+			<span style="font-size:1.071em;color:rgba(78,78,78,1);"></span>
+
+			<span style="font-size:1.071em;color:rgba(78,78,78,1);"></span>
+
+		</p></div>
+
+<div class="margin_collapsetop"></div>
+
+<div style="clear:both;width:0px;"></div>
+
+</div>
+
+</div>
+
+<div class=" visible-lg-block d-xl-block d-lg-block visible-md-block d-md-block visible-sm-block d-sm-block visible-xs-block d-block" style=
+"clear: both;width:0px;"></div>
+
+</div>
+
+<div class="ttr_home_html_row2 row" >
+
+<div class="post_column col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
+
+<div class="ttr_home_html_column20">
+
+<div class="margin_collapsetop"></div>
+
+<div class="html_content">
+
+	<p style="margin:10px 0px 10px 0px;text-align:Center;line-height:2.1em;font-family:'Poppins','Arial';color:rgba(
+231,126,35,1);">
+
+<span class="ttr_image" style="float:none;display:block;overflow:hidden;margin:0px 0px 0px 0px;"><span>
+
+	<img class="ttr_uniform" style="max-height:62px;max-width:62px;margin:0px 0px 20px 0px;" src="images/Icon41.png" alt="icon" /></span></span>
+
+	<span style="font-weight:600;font-size:1.429em;color:rgba(52,52,52,1);">Storage Units</span></p>
+
+	<p style="margin:5px 0px 5px 0px;text-align:Center;line-height:2.11em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+		<span style="font-size:1.071em;color:rgba(78,78,78,1);">For Storing Some Products in gudowns</span>
+	</p>
+
+		<p style="margin:5px 0px 5px 0px;text-align:Center;line-height:2.11em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+			<span style="font-size:1.071em;color:rgba(78,78,78,1);"></span>
+
+			<span style="font-size:1.071em;color:rgba(78,78,78,1);"></span>
+	
+		</p>
+
+	</div>
+
+<div class="margin_collapsetop"></div>
+
+<div style="clear:both;width:0px;"></div>
+
+</div>
+
+</div>
+
+<div class=" visible-sm-block d-sm-block visible-xs-block d-block" style="clear: both;width:0px;"></div>
+
+<div class="post_column col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
+
+<div class="ttr_home_html_column21">
+
+<div class="margin_collapsetop"></div>
+
+<div class="html_content">
+
+	<p style="margin:10px 0px 10px 0px;text-align:Center;line-height:2.1em;font-family:'Poppins','Arial';color:rgba(
+231,126,35,1);">
+
+<span class="ttr_image" style="float:none;display:block;overflow:hidden;margin:0px 0px 0px 0px;">
+
+	<span><img class="ttr_uniform" style="max-height:72px;max-width:72px;margin:0px 0px 20px 0px;" src="images/Icon5.png" alt="icon" /></span></span>
+
+	<span style="font-weight:600;font-size:1.429em;color:rgba(52,52,52,1);">Box Delivery</span></p>
+
+	<p style="margin:5px 0px 5px 0px;text-align:Center;line-height:2.11em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+		<span style="font-size:1.071em;color:rgba(78,78,78,1);">Delivering Box Items Safely  </span></p>
+
+		<p style="margin:5px 0px 5px 0px;text-align:Center;line-height:2.11em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+			<span style="font-size:1.071em;color:rgba(78,78,78,1);"> </span>
+
+			<span style="font-size:1.071em;color:rgba(78,78,78,1);"></span>
+
+		</p>
+
+	</div>
+
+<div class="margin_collapsetop"></div>
+
+<div style="clear:both;width:0px;"></div>
+
+</div>
+
+</div>
+
+<div class=" visible-sm-block d-sm-block visible-xs-block d-block" style="clear: both;width:0px;"></div>
+
+<div class="post_column col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
+
+<div class="ttr_home_html_column22">
+
+<div class="margin_collapsetop"></div>
+
+<div class="html_content">
+
+	<p style="margin:10px 0px 10px 0px;text-align:Center;line-height:2.1em;font-family:'Poppins','Arial';color:rgba(
+231,126,35,1);">
+
+<span class="ttr_image" style="float:none;display:block;overflow:hidden;margin:0px 0px 0px 0px;">
+
+	<span><img class="ttr_uniform" style="max-height:72px;max-width:72px;margin:0px 0px 20px 0px;" src="images/Icon6.png" alt="icon" /></span></span>
+
+	<span style="font-weight:600;font-size:1.429em;color:rgba(52,52,52,1);">Uploading</span></p>
+
+	<p style="margin:5px 0px 5px 0px;text-align:Center;line-height:2.11em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+		<span style="font-size:1.071em;color:rgba(78,78,78,1);">For Exporting Some Products to other states or countries..,</span></p>
+
+		<p style="margin:5px 0px 5px 0px;text-align:Center;line-height:2.11em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+			<span style="font-size:1.071em;color:rgba(78,78,78,1);"></span>
+
+			<span style="font-size:1.071em;color:rgba(78,78,78,1);"></span>
+
+		</p>
+
+	</div>
+
+<div class="margin_collapsetop"></div>
+
+<div style="clear:both;width:0px;"></div>
+
+</div>
+
+</div>
+
+<div class=" visible-lg-block d-xl-block d-lg-block visible-md-block d-md-block visible-sm-block d-sm-block visible-xs-block d-block" style=
+"clear: both;width:0px;"></div>
+</div>
+
+
+
+
+
+<div class="ttr_home_html_row5 row" id="contact">
+
+
+<div class="post_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+
+<div class="ttr_home_html_column50">
+
+
+
+
+
+
+<div class="html_content" id="gallery">
+	<div  class="container">
+		<h2 style="text-align:Center;">Our Works</h2>
+		
+	<div class="abt-img">
+		<ul class="masonary">
+			<li class="width1 wow zoomIn" data-wow-duration="1000ms"><a href="images/IMG_01.JPG" data-group="set1" title="" class="html5lightbox"><img src="images/IMG_01.JPG" alt=""></a></li>
+			<li class="width2 wow zoomIn" data-wow-duration="1000ms"><a href="images/IMG_02.JPG" data-group="set1" title="" class="html5lightbox"><img src="images/IMG_02.JPG" alt=""></a></li>
+			<li class="width3 wow zoomIn" data-wow-duration="1000ms"><a href="images/IMG_03.JPG" data-group="set1" title="" class="html5lightbox"><img src="images/IMG_03.JPG" alt=""></a></li>
+			<li class="width4 wow zoomIn" data-wow-duration="1000ms"><a href="images/IMG_04.JPG" data-group="set1" title="" class="html5lightbox"><img src="images/IMG_04.JPG" alt=""></a></li>
+			<li class="width5 wow zoomIn" data-wow-duration="1000ms"><a href="images/IMG_05.JPG" data-group="set1" title="" class="html5lightbox"><img src="images/IMG_05.JPG" alt=""></a></li>
+			<li class="width6 wow zoomIn" data-wow-duration="1000ms"><a href="images/IMG_06.JPG" data-group="set1" title="" class="html5lightbox"><img src="images/IMG_06.JPG" alt=""></a></li>
+		</ul>
+	</div>
+	</div>
+
+	<h2 style="text-align:Center;">INIYA PACKERS AND MOVERS COMPANY</h2>
+
+		<div class="post_column col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 col-12">
+		
+		<div class="ttr_contact_html_column01">
+		
+		<div class="margin_collapsetop"></div>
+		
+		<div class="html_content">
+
+			<p style="margin:2px 0px 0px 0px;">
+
+				<span style="font-weight:600;font-size:1.714em;">Address:</span></p>
+
+				<p style="margin:20px 0px 0px 0px;line-height:1.99em;">
+
+					<span style="font-size:1em;">	1/95c, Perumal Kovil Street</span></p>
+
+					<p style="margin:2px 0px 0px 0px;line-height:1.99em;">
+
+						<span style="font-size:1em;"> Nadupalayam Peedampalli Post,</span>
+
+					</p>
+
+					<p style="margin:2px 0px 0px 0px;line-height:1.99em;">
+
+						<span style="font-size:1em;">Sulur TK Coimbatore 641016 </span></p>
+
+						<p style="margin:2px 0px 0px 0px;line-height:1.99em;">
+
+							<span style="font-weight:700;font-size:1em;">PHONES:</span>
+
+							<span><a href="tel:+919865146378">+919865146378 </a></span></p>
+
+						</div>
+
+			
+			</div>
+			
+			</div>
+
+			<div class=" visible-sm-block d-sm-block visible-xs-block d-block" style="clear: both;width:0px;"></div>
+			
+			<div class="post_column col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 col-12">
+			
+			<div class="ttr_contact_html_column02">
+			
+			<div class="margin_collapsetop"></div>
+			<div class="html_content"><p>
+
+				<span style="font-weight:600;font-size:1.714em;">Let's Get in Touch </span></p>
+
+				<br>
+
+				<p><div class="contactformdiv" style="margin:0px 0px 0px 0px;">
+
+					<form id="ContactForm0" class="form-horizontal" role="form" method="post" action="#" style="float:left;width:100%;">
+
+						<div class="form-group row">
+
+							<label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12 control-label required">Name</label>
+
+							<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
+
+								<input type="text" class="form-control" data-vali="novalidation" name="name " id="nameid" /></div></div>
+
+								<div class="form-group row">
+
+									<label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12 control-label required">Email</label>
+
+									<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
+
+										<input type="text" class="form-control required" data-vali="email" name="email" id="emailid" /></div></div>
+
+										<div class="form-group row">
+
+											<label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12 control-label required">Phone</label>
+		
+											<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
+		
+												<input type="phone" class="form-control required" data-vali="phone" name="phone" id="phoneid" /></div></div>
+
+
+
+										<div class="form-group row">
+															<div class="form-group row">
+
+																<div class="col-md-8 col-md-offset-4 offset-md-4">
+
+																	<input type="hidden" id="token" name="token" />
+
+																	<input type="submit" class="pull-left float-left btn btn-md btn-default" id="submitform" onclick="data()" name="submit" value="Send Message" /></div></div>
+
+																	<div style="clear: both;"></div>
+
+																	<div class="success"></div>
+
+																	<div class="req_field"></div>
+
+																	<div style="clear: both;"></div></form>
+
+																	<div style="clear: both;"></div></div>
+
+																</p>
+															</div>
+															</div>
+		
+
+			</div>
+
+</div>
+
+</div>
+
+
+<div class="margin_collapsetop"></div>
+
+</div> <!--content_margin-->
+
+</div> <!--content-->
+
+<div style="clear:both">
+
+</div>
+
+</div><!--container-->
+
+</div> <!--page-->
+
+<div class="margin_collapsetop"></div>
+
+<footer id="ttr_footer">
+
+<div class="margin_collapsetop"></div>
+
+ <div id="ttr_footer_inner">
+
+<div class="ttr_footer-widget-cell_inner_widget_container">
+
+
+<div class="ttr_footer-widget-cell_inner0 container row">
+
+
+
+<div class=" visible-sm-block d-sm-block visible-xs-block d-block" style="clear: both;"></div>
+
+<div class="post_column col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
+
+<div class="footercellcolumn4">
+
+<div class="margin_collapsetop"></div>
+
+<div class="html_content">
+
+	<p style="margin:0px 0px 0px 0px;line-height:2.1em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+<span style="font-weight:600;font-size:1.429em;color:rgba(255,255,255,1);">Contact us</span></p>
+
+<p style="margin:20px 0px 0px 0px;line-height:2.21em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+
+	<span style="font-size:1.071em;color:rgba(225,225,225,1);">1/95c perumal Kovil Street</span></p>
+
+	<p style="margin:2px 0px 0px 0px;line-height:2.21em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+		<span style="font-size:1.071em;color:rgba(225,225,225,1);">nadupalayam peedampalli poA</span></p>
+
+		<p style="margin:2px 0px 0px 0px;line-height:2.21em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+			<span style="font-size:1.071em;color:rgba(225,225,225,1);">Sulur tk</span></p>
+
+			<p style="margin:2px 0px 0px 0px;line-height:2.21em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+				<span style="font-size:1.071em;color:rgba(225,225,225,1);">Coimbatore 641016</span></p>
+
+				<p style="margin:20px 0px 0px 0px;line-height:2.64em;font-family:'Poppins','Arial';color:rgba(51,51,51,1);">
+
+					<br style="font-weight:600;font-size:1.429em;color:rgba(255,255,255,1);" />
+
+				</p></div>
+
+<div class="margin_collapsetop"></div>
+
+</div>
+
+</div>
+
+<div class=" visible-lg-block d-xl-block d-lg-block visible-md-block d-md-block visible-sm-block d-sm-block visible-xs-block d-block" style=
+"clear: both;"></div>
+
+<div class=" visible-lg-block d-xl-block d-lg-block visible-md-block d-md-block visible-sm-block d-sm-block visible-xs-block d-block" style="clear:both;"></div>
+
+</div>
+
+</div>
+
+<div class="ttr_footer_bottom_footer">
+
+<div class="ttr_footer_bottom_footer_inner">
+
+<div class="ttr_footer_element_alignment container">
+
+</div>
+
+<div id="ttr_footer_designed_by_links">
+
+
+<span id="ttr_footer_designed_by">
+All rights reserved 2021
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</footer>
+
+
+
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/html5lightbox.js"></script>
+<script src="assets/js/slick.min.js"></script>
+<script src="assets/js/tweenMax.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+
+
+</body>
+
+</html>
