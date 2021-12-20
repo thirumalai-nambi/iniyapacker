@@ -2841,13 +2841,15 @@ position:absolute;
 left:2.87%;
 right:auto;
 width:172px;
-height:22px;
+height:24px;
 box-sizing:border-box;
 z-index:503;
 word-wrap:break-word;
 display:block;
 
 }
+
+
  .ttr_headershape02
 {
 background-color:transparent;
@@ -2855,9 +2857,9 @@ background:rgba(255,255,255,0);
 background-clip:padding-box;border-radius:0 0 0 0;
 border:solid rgba(0,0,0,1);
 border-width: 0 0 0 0;
-box-shadow:none;top:10.5px;
+box-shadow:none;top:11.5px;
 position:absolute;
-left:15.67%;
+left:13.67%;
 right:auto;
 width:240px;
 height:24px;
@@ -2876,7 +2878,7 @@ border:solid rgba(0,0,0,1);
 border-width: 0 0 0 0;
 box-shadow:none;top:118px;
 position:absolute;
-left:3.87%;
+left:2.87%;
 right:auto;
 width:590px;
 height:300px;
