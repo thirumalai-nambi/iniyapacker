@@ -107,41 +107,20 @@
 </script>
 
 <script>
-	function data() {
-		var x = document.getElementById("snackbar");
+	  var x = document.getElementById("snackbar");
 		var y = document.getElementById("snackbar_f");
 
-		var name=document.getElementById("nameid").value;  
-		var Email=document.getElementById("emailid").value;  
-		var phone=document.getElementById("phoneid").value;  
+  document.getElementById("submitdone").addEventListener("click", function(event){
+  event.preventDefault();
 
-		var templateParams = {
-    name: name,
-    Email: Email,
-		Phone: phone,
-};
+	console.log('SUCCESS!', response.status, response.text);
+	alert("new");
+});
 
-
-		emailjs.send('service_56p2f7i', "template_fbc708c", templateParams)
-    .then(function(response) {
-       console.log('SUCCESS!', response.status, response.text);
-
-  x.className = "show";
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-
-    }, function(error) {
-       console.log('FAILED...', error);
-			 alert("FAILED Try Later");
-
-			 y.className = "show";
-       setTimeout(function(){ y.className = y.className.replace("show", ""); }, 3000);
-
-    });
-
-
-}
 
 </script>
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 <meta name="description" content="Meta Description" />
@@ -948,7 +927,7 @@ data-duration="0">
 
 																	<input type="hidden" id="token" name="token" />
 
-																	<input type="submit" class="pull-left float-left btn btn-md btn-default" id="submitform" onclick="data()" name="submit" value="Send Message" /></div></div>
+																	<input type="submit" class="pull-left float-left btn btn-md btn-default" id="submitdone"  /></div></div>
 
 																	<div style="clear: both;"></div>
 
