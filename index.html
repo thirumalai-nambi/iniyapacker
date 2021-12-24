@@ -6,6 +6,73 @@
 
 <meta charset="utf-8">
 <style>
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.containerlogin {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
 	#snackbar {
   visibility: hidden; /* Hidden by default. Visible on click */
   min-width: 250px; /* Set a default minimum width */
@@ -73,6 +140,8 @@
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
+
+
 </style>
 
 <script type="text/javascript" src="jquery.js">
@@ -84,6 +153,8 @@
 <script type="text/javascript" src="bootstrap.min.js">
 </script>
 <script type="text/javascript" src="tt_animation.js">
+</script>
+<script type="text/javascript" src="contactform.js">
 </script>
 
 
@@ -107,18 +178,57 @@
 </script>
 
 <script>
-	  var x = document.getElementById("snackbar");
-		var y = document.getElementById("snackbar_f");
-
-  document.getElementById("submitdone").addEventListener("click", function(event){
+  var x = document.getElementById("snackbar");
+  var y = document.getElementById("snackbar_f");
+  
+  document.getElementById("btnclik").addEventListener("click", function(event){
   event.preventDefault();
+  
+  console.log('SUCCESS!', response.status, response.text);
+  alert("new");
+  });
 
-	console.log('SUCCESS!', response.status, response.text);
-	alert("new");
-});
 
 
-</script>
+  
+  function btnclik(){
+  
+  var x = document.getElementById("snackbar");
+  var y = document.getElementById("snackbar_f");
+  
+    var name=document.getElementById("nameid").value;  
+  var Email=document.getElementById("emailid").value;  
+  var phone=document.getElementById("phoneid").value;  
+  
+      var templateParams = {
+      name: name,
+      Email: Email,
+      Phone: phone,
+  };
+  
+  emailjs.send('service_56p2f7i', "template_fbc708c", templateParams)
+      .then(function(response) {
+         console.log('SUCCESS!', response.status, response.text);
+         x.className = "show";
+         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+         document.getElementById("phoneid").value="";
+         document.getElementById("emailid").value="";
+         document.getElementById("nameid").value="";
+  
+         
+      }, function(error) {
+         console.log('FAILED...', error);
+         y.className = "show";
+         setTimeout(function(){ y.className = y.className.replace("show", ""); }, 3000);
+  
+      });
+  
+  }
+  
+  
+  
+  
+  </script>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -141,6 +251,13 @@
 	<div id="snackbar">Our Team Will Contact you Shortly...</div>
 
 	<div id="snackbar_f">Failed Try Later...</div> 
+
+	<!-- The Modal -->
+
+
+  <!-- Modal content -->
+
+
 
 <div class="totopshow">
 
@@ -890,56 +1007,51 @@ data-duration="0">
 
 				<br>
 
-				<p><div class="contactformdiv" style="margin:0px 0px 0px 0px;">
+				<p>
+					<div class="contactformdiv" style="margin:0px 0px 0px 0px;">
 
-					<form id="ContactForm0" class="form-horizontal" role="form" method="post" action="#" style="float:left;width:100%;">
+						<div class="containerlogin">
 
-						<div class="form-group row">
+							<div class="row">
+								<div class="col-25">
+									<label for="nameid">Name</label>
+								</div>
+								<div class="col-75">
+									<input type="text" id="nameid" name="name" placeholder="Your name..">
+								</div>
+							</div>
 
-							<label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12 control-label required">Name</label>
+							
 
-							<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
+							<div class="row">
+								<div class="col-25">
+									<label for="emailid">Email</label>
+								</div>
+								<div class="col-75">
+									<input type="text" id="emailid" name="email" placeholder="Your Email..">
+								</div>
+							</div>
 
-								<input type="text" class="form-control" data-vali="novalidation" name="name " id="nameid" /></div></div>
+							<div class="row">
+								<div class="col-25">
+									<label for="phoneid">Phone</label>
+								</div>
+								<div class="col-75">
+									<input type="text" id="phoneid" name="phone" placeholder="Your Phone..">
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<input type="submit" value="Submit"  onclick="btnclik()">
+							</div>
+						</div>
+			
 
-								<div class="form-group row">
-
-									<label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12 control-label required">Email</label>
-
-									<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
-
-										<input type="text" class="form-control required" data-vali="email" name="email" id="emailid" /></div></div>
-
-										<div class="form-group row">
-
-											<label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12 control-label required">Phone</label>
-		
-											<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
-		
-												<input type="phone" class="form-control required" data-vali="phone" name="phone" id="phoneid" /></div></div>
-
+							
 
 
-										<div class="form-group row">
-															<div class="form-group row">
 
-																<div class="col-md-8 col-md-offset-4 offset-md-4">
-
-																	<input type="hidden" id="token" name="token" />
-
-																	<input type="submit" class="pull-left float-left btn btn-md btn-default" id="submitdone"  /></div></div>
-
-																	<div style="clear: both;"></div>
-
-																	<div class="success"></div>
-
-																	<div class="req_field"></div>
-
-																	<div style="clear: both;"></div></form>
-
-																	<div style="clear: both;"></div></div>
-
-																</p>
+						</p>
 															</div>
 															</div>
 		
